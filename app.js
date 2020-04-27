@@ -38,8 +38,15 @@ app.get('/cipher', (req, res) => {
 
   let cipher = '';
   for (let i = 0; i < text.length; i++) {
-    cipher = cipher + text.fromCharCode('A'.charCodeAt(0) + shift);
+    if (isUpperCase(text[i])) {
+      cipher += String.fromCharCode((text.charCodeAt(i) + shift - 65) % 26 + 65);
+    } else {
+      cipher += String.fromCharCode((text.charCodeAt(i) + shift - 97) % 26 + 97);
+    }
   }
-
   res.send(cipher);
 });
+
+function isUpperCase(str) {
+  return str === str.toUpperCase();
+}
