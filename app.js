@@ -1,4 +1,4 @@
-
+'use strict';
 
 const express = require('express');
 const morgan = require('morgan');
@@ -50,3 +50,29 @@ app.get('/cipher', (req, res) => {
 function isUpperCase(str) {
   return str === str.toUpperCase();
 }
+
+app.get('/lotto', (req, res) => {
+  const num = req.query.num;
+  const lottoNums= [getRandomInt(20),getRandomInt(20),getRandomInt(20),getRandomInt(20),getRandomInt(20),getRandomInt(20)];
+  let correct= 0;
+  let result= null;
+
+  for(let i = 0; i < num.length; i++){
+    if(lottoNums.includes(parseInt(num[i]))){
+      correct++;
+    }
+  } 
+  
+  if(correct<4){
+    result='Sorry, you lose';
+  }else if(correct===4){
+    result='Congratulations, you win a free ticket';
+  }else if(correct===5){
+    result='Congratulations! You win $100!';
+  }else if(correct===6){
+    result='Wow! Unbelievable! You could have won the mega millions!';
+  }
+  res.send(result);
+});
+
+function getRandomInt(max) { return Math.floor(Math.random() * Math.floor(max)); }
