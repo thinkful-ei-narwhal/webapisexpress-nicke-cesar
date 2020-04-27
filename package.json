@@ -1,17 +1,19 @@
 {
   "name": "webapisexpress-nicke-cesar",
   "version": "1.0.0",
-  "description": "",
+  "description": "drills",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thinkful-ei-narwhal/webapisexpress-nicke-cesar.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cesar Nick",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/thinkful-ei-narwhal/webapisexpress-nicke-cesar/issues"
