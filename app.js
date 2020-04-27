@@ -41,8 +41,5 @@ app.get('/cipher', (req, res) => {
     cipher = cipher + text.fromCharCode('A'.charCodeAt(0) + shift);
   }
 
-
-
-  const cipheredText = `${cipher}`;
-  res.send(cipheredText);
+  res.send(cipher);
 });
